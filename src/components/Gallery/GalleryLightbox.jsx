@@ -1,9 +1,5 @@
 import { motion } from 'framer-motion'
 import { useRef, useEffect, useState } from 'react';
-import {
-  TransformComponent,
-  TransformWrapper,
-} from "@pronestor/react-zoom-pan-pinch";
 
 import GalleryLightboxImg from './GalleryLightboxImg';
 
