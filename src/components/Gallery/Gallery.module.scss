@@ -1,0 +1,106 @@
+@import '../../styles/vendors/emit-mediaquery';
+
+.grid{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	column-gap: 2rem;
+	row-gap: 2rem;
+	margin-top: 3rem;
+}
+
+.loader{
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	margin-top: 3rem;
+}
+
+.itemwrapper{
+	width: 45%;
+	@include mqT{
+		width: 30%;
+	}
+	@include mqTL{
+		width: 22%;
+	}
+	@include mqL{
+		width: 23%;
+	}
+}
+
+.item{
+	aspect-ratio: 1/1;
+	line-height: 1;
+	transition: aspect-ratio 200ms ease-out;
+	overflow: hidden;
+	img{
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		z-index: 1;
+		&:hover{
+			cursor: pointer;
+		}
+	}
+}
+
+.backdrop{
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+	background: rgba(0,0,0,0.8);
+	color: white;
+	backdrop-filter: saturate(180%) blur(20px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.lightboxcontainer{
+	max-width: 95vw;
+	max-height: 60vh;
+	width: 100%;
+	height: auto;
+	transition: aspect-ratio 200ms ease-out;
+	@include mqPL{
+		max-width: 65%;
+	}
+	@include mqTL{
+		max-width: 60vw;
+		max-height: 80vh;
+	}
+	@include mqL{
+		max-width: 60vw;
+		max-height: 80vh;	
+	}
+
+	img{
+		width: 100%;
+		height: auto;
+		min-height: 50vh;
+		max-height: 100%;
+		max-width: 100%;
+		object-fit: cover;
+		pointer-events: none;
+		@include mqPL{
+			max-height: 80vh;
+		}
+		@include mqTL{
+			max-height: 90vh;
+		}
+		@include mqL{
+			min-height: unset;
+		}
+	}
+	figcaption{
+		display: block;
+		width: 100%;
+		text-align: center;
+		a:hover{
+			text-decoration: underline;
+		}
+	}
+}
